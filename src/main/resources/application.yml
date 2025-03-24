@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-jwt
+#settings of postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5438/postgres
+    username: postgres
+    password: root
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
