@@ -11,3 +11,9 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: true
+#security settings
+  security:
+    jwt:
+      secret_key: b48596c0e6c9e1266f5af397e2bbd61c39b357ece84dd81ff1e0747bac563a62
+      access_token_expiration: 36000000
+      refresh_token_expiration: 252000000
