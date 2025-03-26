@@ -80,15 +80,15 @@ public class JwtService {
     }
 
     private boolean isAccessTokenExpired(String token){
-        return extractExpiration(token).before(new Date());
+        return !extractExpiration(token).before(new Date());
     }
 
     public boolean isValid(String token, UserDetails user){
         String username = extractUsername(token);
-
+        System.out.println(user.getUsername());
         boolean isValidToken = tokenRepository.findByAccessToken(token)
                 .map(t -> !t.isLoggedOut()).orElse(false);
-
+        System.out.println(isValidToken);
         return username.equals(user.getUsername())
                 && isAccessTokenExpired(token)
                 && isValidToken;
